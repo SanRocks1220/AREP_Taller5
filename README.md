@@ -37,3 +37,11 @@ Por ejemplo, probar el servicio LogRoundRobin en `http://localhost:4567` pasando
 
 ## Otro Método
 Clonar este repositorio y ejecutar `docker-compose up` (pendiente de funcionamiento).
+
+
+## Autor
+- [Santiago Andres Rocha C.](https://github.com/SanRocks1220)
+
+## Colaboradores
+- [David Valencia](https://github.com/DavidVal6)
+- [ChatGPT](https://chat.openai.com)
