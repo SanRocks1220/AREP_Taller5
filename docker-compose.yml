@@ -1,0 +1,56 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo:4.2
+    container_name: dbmongorocha
+    ports:
+      - "27017:27017"
+    networks:
+      - redConectada
+
+  logroundrobin:
+    build:
+      context: ./LogRoundRobin
+    container_name: logroundrobin
+    ports:
+      - "4567:4567"
+    networks:
+      - redConectada
+    depends_on:
+      - mongodb
+
+  logservice1:
+    build:
+      context: ./LogService
+    container_name: logservice1
+    ports:
+      - "4568:4568"
+    networks:
+      - redConectada
+    depends_on:
+      - mongodb
+
+  logservice2:
+    build:
+      context: ./LogService
+    container_name: logservice2
+    ports:
+      - "4569:4568"
+    networks:
+      - redConectada
+    depends_on:
+      - mongodb
+
+  logservice3:
+    build:
+      context: ./LogService
+    container_name: logservice3
+    ports:
+      - "4570:4568"
+    networks:
+      - redConectada
+    depends_on:
+      - mongodb
+
+networks:
+  redConectada:

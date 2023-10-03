@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 
 public class HttpRemoteCaller {
 
@@ -20,7 +21,8 @@ public class HttpRemoteCaller {
     private static int currentServer = 0;
                                          
     public static String remoteLogCall(String message) throws IOException{
-        return remoteHttpCall(LOG_SERVERS[currentServer] + "/logService?message=" + message);
+        String encodedMessage = URLEncoder.encode(message, "UTF-8"); // Para permitir espacios en el mensaje
+        return remoteHttpCall(LOG_SERVERS[currentServer] + "/logService?value=" + encodedMessage);
     }
 
     public static String remoteHttpCall(String url) throws IOException {
@@ -32,7 +34,7 @@ public class HttpRemoteCaller {
         
         //The following invocation perform the connection implicitly before getting the code
         int responseCode = con.getResponseCode();
-        System.out.println("GET Response Code :: " + responseCode);
+        System.out.println("GET Response Code: " + responseCode);
         StringBuffer response = new StringBuffer();
         
         if (responseCode == HttpURLConnection.HTTP_OK) { // success
@@ -50,7 +52,7 @@ public class HttpRemoteCaller {
         } else {
             System.out.println("GET request not worked");
         }
-        System.out.println("GET DONE from Port: " + currentServer);
+        System.out.println("GET DONE from Port: " + LOG_SERVERS[currentServer]);
 
         rotateRoundrobinServer();
         return response.toString();
