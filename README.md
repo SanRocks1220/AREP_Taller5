@@ -21,7 +21,7 @@ Para verificar la funcionalidad de las imágenes en el repositorio de Docker Hub
    Luego, ejecutar los contenedores con los comandos:
 
    ```
-   docker run --network arep-network --name mongodb -d mongo:4.2
+   docker run --network arep-network --name dbmongorocha -d mongo:4.2
    docker run --network arep-network --name logroundrobin -p 4567:4567 -d sanrocks12/arep-taller5:logroundrobin
    docker run --network arep-network --name logservice1 -p 4568:4568 -d sanrocks12/arep-taller5:logservice1
    docker run --network arep-network --name logservice2 -p 4569:4568 -d sanrocks12/arep-taller5:logservice2

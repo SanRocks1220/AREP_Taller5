@@ -12,10 +12,11 @@ public class HttpRemoteCaller {
 
     private static final String USER_AGENT = "Mozilla/5.0";
     private static final String[] LOG_SERVERS = new String[]{
-                                                    "http://localhost:4568",
-                                                    "http://localhost:4569",
-                                                    "http://localhost:4570",
-                                                };
+        "http://logservice1:4568",
+        "http://logservice2:4568",
+        "http://logservice3:4568",
+    };
+    
     //private static final String GET_URL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=fb&apikey=Q1QZFVJQ21K7C6XM";
 
     private static int currentServer = 0;

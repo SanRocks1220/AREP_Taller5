@@ -39,7 +39,11 @@ public class LogService {
 
     private static String logMessage(String val) {
         // Configura la conexión a MongoDB
-        try (MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017")) {
+
+        // Construir la URL de conexión a MongoDB
+        String mongoDbUrl = "mongodb://projectdb:27017";
+
+        try (MongoClient mongoClient = MongoClients.create(mongoDbUrl)) {
             // Selecciona la base de datos y la colección
             MongoDatabase database = mongoClient.getDatabase("dbmongorocha");
             MongoCollection<Document> collection = database.getCollection("messages");

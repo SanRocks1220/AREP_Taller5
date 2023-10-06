@@ -1,56 +1,45 @@
 version: '3'
 services:
   mongodb:
-    image: mongo:4.2
-    container_name: dbmongorocha
+    image: sanrocks12/arep-taller5-terminado:bdproject
+    container_name: projectdb
     ports:
       - "27017:27017"
     networks:
       - redConectada
+    command: 'mongod'
 
   logroundrobin:
-    build:
-      context: ./LogRoundRobin
-    container_name: logroundrobin
+    image: sanrocks12/arep-taller5-terminado:logroundrobin
     ports:
       - "4567:4567"
+    container_name: logroundrobin
     networks:
       - redConectada
-    depends_on:
-      - mongodb
 
   logservice1:
-    build:
-      context: ./LogService
-    container_name: logservice1
+    image: sanrocks12/arep-taller5-terminado:logservice
     ports:
       - "4568:4568"
+    container_name: logservice1
     networks:
       - redConectada
-    depends_on:
-      - mongodb
 
   logservice2:
-    build:
-      context: ./LogService
-    container_name: logservice2
+    image: sanrocks12/arep-taller5-terminado:logservice
     ports:
       - "4569:4568"
+    container_name: logservice2
     networks:
       - redConectada
-    depends_on:
-      - mongodb
 
   logservice3:
-    build:
-      context: ./LogService
-    container_name: logservice3
+    image: sanrocks12/arep-taller5-terminado:logservice
     ports:
       - "4570:4568"
+    container_name: logservice3
     networks:
       - redConectada
-    depends_on:
-      - mongodb
 
 networks:
   redConectada:
