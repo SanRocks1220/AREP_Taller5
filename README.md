@@ -61,6 +61,8 @@ Para verificar la funcionalidad de las imágenes en el repositorio de Docker Hub
 
 Por ejemplo, probar el servicio LogRoundRobin en `http://localhost:4567` pasando diferentes valores a almacenar.
 
+**Nota:** Sis e desea limpiar la base de datos, en la casilla de texto escribir `/clearDB`
+
 ## Funcionamiento en AWS
 - [Funcionamiento en AWS](https://youtu.be/PJ6eGWUeSRM?si=fCTjgQ5GA71SnqeZ)
 
